@@ -6,6 +6,8 @@ A washer and tumble dryer card for **Miele** machines that use Home Assistant's 
 The machine is drawn on the card with a progress ring round the door, the time left on its display, and the
 laundry turning while it runs. You can start, pause, resume and stop a cycle from the card, and switch the machine off.
 
+**📖 [Step-by-step guide and live demo](https://mymediabuild.uk/home-assistant-miele-washer-dryer-card/)** · **☕ [Buy me a coffee](https://buymeacoffee.com/bobgreggr)**
+
 > **Beta.** I don't own a Miele. The card is built from the integration's source code and tested against
 > simulated states. If you try it, please [open an issue](../../issues) with your model and what you see.
 > That's how it gets out of beta.
@@ -84,6 +86,14 @@ such as `sensor.washing_machine` or `sensor.waschmaschine`.
   status sensor (Developer Tools → States, search for your machine's name).
 - **Something else looks wrong:** please open an issue with your model and a screenshot of Developer Tools → States
   filtered for your machine.
+
+## Support and requests
+
+I build and look after this card in my spare time.
+
+- **Found a bug?** [Open an issue](../../issues/new/choose) and fill in the form. A screenshot and the entity list help a lot.
+- **Want another brand or integration?** Pull requests are very welcome. I can only test machines I own, so I can't promise to add new ones myself. Use the "Support for another machine" form so all the details are in one place.
+- **Like the card?** A ⭐ on GitHub helps other people find it, and you can [buy me a coffee](https://buymeacoffee.com/bobgreggr) ☕. More free Home Assistant cards and guides at [mymediabuild.uk](https://mymediabuild.uk).
 
 ## Thanks
 
