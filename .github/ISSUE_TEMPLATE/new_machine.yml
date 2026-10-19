@@ -1,0 +1,41 @@
+name: Support for another machine or integration
+description: Ask for a brand, model or integration the card doesn't support yet.
+title: "Add support for "
+labels: [new machine]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        I can only test machines I own, so support for new brands or integrations depends on owners like you. A **pull request** is the quickest way. If you can't code, the details below are what's needed to even look at it, but I can't promise when (or if) it gets built.
+  - type: input
+    id: machine
+    attributes:
+      label: Brand and model
+      placeholder: e.g. Bosch WGG244A9GB
+    validations:
+      required: true
+  - type: input
+    id: integration
+    attributes:
+      label: Home Assistant integration
+      description: Its name and a link, e.g. Home Connect (built in), or a HACS repository.
+    validations:
+      required: true
+  - type: textarea
+    id: entities
+    attributes:
+      label: Entity list with states
+      description: Developer tools → States, search for your machine, and paste every entity with its state. Do it once while it's idle and once while it's running if you can. Screenshots are fine.
+    validations:
+      required: true
+  - type: textarea
+    id: controls
+    attributes:
+      label: Can Home Assistant control it?
+      description: Any buttons, selects or actions the integration has for starting, pausing or stopping (Developer tools → Actions).
+  - type: checkboxes
+    id: test
+    attributes:
+      label: Testing
+      options:
+        - label: I'm happy to test a beta version on my machine and report back.
