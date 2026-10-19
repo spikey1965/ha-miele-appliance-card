@@ -1,0 +1,36 @@
+name: Bug report
+description: Something on the card is wrong or missing.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report this. The more of this form you fill in, the quicker it gets fixed.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did the card show instead?
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Your machine (brand and model)
+      placeholder: e.g. Hoover H-WASH 500
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Card version and Home Assistant version
+      placeholder: e.g. card 2.0.1, Home Assistant 2026.10.2
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot of the card
+      description: Drag an image in here.
+  - type: textarea
+    id: states
+    attributes:
+      label: Entity list
+      description: Developer tools → States, search for your machine's name, and paste the list (or a screenshot) of the entities and their states.
