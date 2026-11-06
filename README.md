@@ -37,9 +37,17 @@ The buttons only show when the machine will take them at that moment. For exampl
 
 ## Install
 
-**HACS:** HACS → ⋮ → Custom repositories → add `https://github.com/spikey1965/ha-miele-appliance-card`, type **Dashboard**.
-Then find "Miele Appliance Card", download it, and reload the browser. While it's a pre-release, open it in HACS
-and switch on "Show beta versions" if it isn't offered.
+### Marketplace (recommended)
+
+1. Go to **Settings → Marketplace** and click **Add from link**. This asks you to connect GitHub.
+2. Paste `https://github.com/spikey1965/ha-miele-appliance-card` and choose the type **Dashboard** if asked.
+3. Find **Miele Appliance Card** under **New**, open it and click **Install**. Reload your browser.
+
+Because it's a beta, Marketplace shows a short code such as `f5fa069` instead of a version number, which is normal. To get the numbered beta instead, open the **⋮ menu → Include pre-releases → Include** before you install.
+
+The first time you use Marketplace, tick **I understand the risks and agree** and click **Continue**.
+
+**On a version older than 2026.11?** Marketplace is still called HACS there. Use **Download** in place of Install and **⋮ → Custom repositories** in place of Add from link.
 
 **Manual:** copy `miele-appliance-card.js` to `/config/www/`, then add a dashboard resource
 (Settings → Dashboards → ⋮ → Resources): `/local/miele-appliance-card.js?v=0.1.0`, type **JavaScript module**.
