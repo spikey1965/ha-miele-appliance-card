@@ -8,9 +8,9 @@ laundry turning while it runs. You can start, pause, resume and stop a cycle fro
 
 **📖 [Step-by-step guide and live demo](https://mymediabuild.uk/home-assistant-miele-washer-dryer-card/)** · **☕ [Buy me a coffee](https://buymeacoffee.com/bobgreggr)**
 
-> **Beta.** I don't own a Miele. The card is built from the integration's source code and tested against
-> simulated states. If you try it, please [open an issue](../../issues) with your model and what you see.
-> That's how it gets out of beta.
+> **Beta.** I don't own a Miele, but the washer side has now been tested on a real Miele washer (thanks
+> **MrMoep**). The dryer is still only tested against simulated states. If you try it, please
+> [open an issue](../../issues) with your model and what you see. That's how it gets out of beta.
 
 Sister card of the [hOn washer & dryer card](https://github.com/spikey1965/ha-hon-appliance-card) (Haier, Candy, Hoover)
 and the [Candy card](https://github.com/spikey1965/ha-candy-appliance-card) (Candy Simply-Fi).
@@ -22,7 +22,9 @@ and the [Candy card](https://github.com/spikey1965/ha-candy-appliance-card) (Can
 - Status: Off, On, Ready, Delayed start, Running (with the phase: Washing, Rinse, Spin, Drying, Cooldown ...), Paused, Finished, Error
 - Time left on the machine's display, the end time, and a progress ring round the door
 - Programme, temperature and spin speed (washer) or dryness (dryer)
-- The door (open, closed, locked while it runs) and Remote Control
+- The door: a **Door** line in the info panel (Open, Closed, Locked while it runs) when your machine has a door sensor, and a door icon that turns amber when it's open
+- Remote Control
+- **English or German**, following Home Assistant's language (programme names use Home Assistant's own translation)
 - **Start**, **Pause**, **Resume** and **Stop** (Stop asks first), and **Off** using the machine's power switch
 
 The buttons only show when the machine will take them at that moment. For example, there's no Pause during a delayed start.
@@ -50,7 +52,7 @@ The first time you use Marketplace, tick **I understand the risks and agree** an
 **On a version older than 2026.11?** Marketplace is still called HACS there. Use **Download** in place of Install and **⋮ → Custom repositories** in place of Add from link.
 
 **Manual:** copy `miele-appliance-card.js` to `/config/www/`, then add a dashboard resource
-(Settings → Dashboards → ⋮ → Resources): `/local/miele-appliance-card.js?v=0.1.0`, type **JavaScript module**.
+(Settings → Dashboards → ⋮ → Resources): `/local/miele-appliance-card.js?v=0.2.0`, type **JavaScript module**.
 
 It can sit alongside the hOn card. They use different card names.
 
@@ -77,12 +79,13 @@ such as `sensor.washing_machine` or `sensor.waschmaschine`.
 |---|---|---|
 | `appliance` | `washer` | `washer` or `dryer` |
 | `entity` | first Miele machine | the machine's status sensor, e.g. `sensor.waschmaschine` |
-| `name` | Washer / Dryer | card title |
+| `name` | Washer / Dryer (Waschmaschine / Trockner in German) | card title |
 | `colour` | blue / orange | accent colour, e.g. `"#4fb3ff"` |
 | `style` | `drawn` | `photo` = a more detailed illustration |
 | `finish` | `white` | machine colour: `white`, `graphite` or `black` |
 | `max_width` | `440px` | |
 | `images` | built in | a folder with your own `washer.svg`, `dryer.svg` and `laundry-drum.webp` |
+| `language` | `auto` | `auto` follows Home Assistant's language (German or English); `en` or `de` to choose |
 
 ![Photo style in black](images/black.png)
 
@@ -105,7 +108,8 @@ I build and look after this card in my spare time.
 
 ## Thanks
 
-Built from **MrMoep**'s detailed write-up of the Miele entities on the hOn card's issue tracker.
+Built from **MrMoep**'s detailed write-up of the Miele entities on the hOn card's issue tracker, and tested by him
+on his own Miele washer (the Door line was his idea).
 Card by [My Media Build](https://mymediabuild.uk), with a [step-by-step guide](https://mymediabuild.uk/home-assistant-miele-washer-dryer-card/).
 If you find it useful, you can [buy me a coffee](https://buymeacoffee.com/bobgreggr) ☕ (no pressure).
 
