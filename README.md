@@ -8,9 +8,9 @@ laundry turning while it runs. You can start, pause, resume and stop a cycle fro
 
 **📖 [Step-by-step guide and live demo](https://mymediabuild.uk/home-assistant-miele-washer-dryer-card/)** · **☕ [Buy me a coffee](https://buymeacoffee.com/bobgreggr)**
 
-> **Beta.** I don't own a Miele, but the washer side has now been tested on a real Miele washer (thanks
-> **MrMoep**). The dryer is still only tested against simulated states. If you try it, please
-> [open an issue](../../issues) with your model and what you see. That's how it gets out of beta.
+> **Tested on a real Miele washer** (thanks **MrMoep**). I don't own a Miele myself, and the dryer has only been
+> tested against simulated states so far. If you have a Miele dryer, please [open an issue](../../issues) with your
+> model and what you see.
 
 Sister card of the [hOn washer & dryer card](https://github.com/spikey1965/ha-hon-appliance-card) (Haier, Candy, Hoover)
 and the [Candy card](https://github.com/spikey1965/ha-candy-appliance-card) (Candy Simply-Fi).
@@ -45,14 +45,12 @@ The buttons only show when the machine will take them at that moment. For exampl
 2. Paste `https://github.com/spikey1965/ha-miele-appliance-card` and choose the type **Dashboard** if asked.
 3. Find **Miele Appliance Card** under **New**, open it and click **Install**. Reload your browser.
 
-Because it's a beta, Marketplace shows a short code such as `f5fa069` instead of a version number, which is normal. To get the numbered beta instead, open the **⋮ menu → Include pre-releases → Include** before you install.
-
 The first time you use Marketplace, tick **I understand the risks and agree** and click **Continue**.
 
 **On a version older than 2026.11?** Marketplace is still called HACS there. Use **Download** in place of Install and **⋮ → Custom repositories** in place of Add from link.
 
 **Manual:** copy `miele-appliance-card.js` to `/config/www/`, then add a dashboard resource
-(Settings → Dashboards → ⋮ → Resources): `/local/miele-appliance-card.js?v=0.2.0`, type **JavaScript module**.
+(Settings → Dashboards → ⋮ → Resources): `/local/miele-appliance-card.js?v=1.0.0`, type **JavaScript module**.
 
 It can sit alongside the hOn card. They use different card names.
 

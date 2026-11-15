@@ -24,7 +24,7 @@
 // BETA: tested on a real Miele washer (thanks @MrMoep); the dryer is still tested against simulated states only.
 
 
-const MIELE_CARD_VERSION = "0.2.0";
+const MIELE_CARD_VERSION = "1.0.0";
 
 // Built-in pictures (illustrations drawn for this card), so it's a single file that installs through HACS.
 const MIELE_IMG = {
@@ -115,7 +115,9 @@ const DEFAULTS = {
   dryer:  { colour: "#ffb44f" },
 };
 const nice = v => String(v).replace(/_/g, " ").replace(/^\w/, c => c.toUpperCase());
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+// for url('...') inside a style attribute: percent-encode characters that could end the CSS url
+const cssUrl = s => esc(String(s).replace(/['"()\\\s]/g, c => "%" + c.charCodeAt(0).toString(16).padStart(2, "0")));
 function setup(c) {
   const appliance = c.appliance || "washer";
   if (!DEFAULTS[appliance]) throw new Error("appliance must be washer or dryer");
@@ -271,7 +273,7 @@ class MieleApplianceCard extends HTMLElement {
       </div>
       <div class="ask" id="ask" hidden><span id="askT"></span><button id="askNo">${L.cancel}</button><button class="go" id="askYes">${L.yes}</button></div>
       <div class="err" id="err"></div>
-      <div class="pic" id="pic" style="--ratio:${g.ratio};--drum:url('${esc(mieleImg(c, "laundry-drum.webp"))}');${c.max_width ? `--maxw:${esc(c.max_width)}` : ""}">
+      <div class="pic" id="pic" style="--ratio:${g.ratio};--drum:url('${cssUrl(mieleImg(c, "laundry-drum.webp"))}');${c.max_width ? `--maxw:${esc(c.max_width)}` : ""}">
         ${c.style === "photo" ? `<img class="machine" src="${esc(mieleImg(c, dryer ? "dryer.svg" : "washer.svg"))}" alt="">` : machineSVG(dryer)}
         <div class="at glass" style="left:${g.glass.x}%;top:${g.glass.y}%;width:${g.glass.w}%;height:${g.glass.h * (c.style === "drawn" ? 1.4 * 100 / 140 : 1)}%;border-radius:${g.glass.r}">
           <div class="fx"><div class="load"></div><div class="${dryer ? "heat" : "water"}"></div></div>
